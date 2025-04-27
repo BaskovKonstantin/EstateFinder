@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title or "CIAN Finder" }}</title>
+
+  <!-- DataTables + Buttons  -->
+  <link rel="stylesheet"
+        href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header><h1>CIAN Finder — поиск и оценка</h1></header>
+
+<!-- ░░░ ФОРМА ░░░ -->
+<section id="search">
+  <form id="search-form">
+    <fieldset>
+      <legend>Параметры поиска</legend>
+
+      <label>deal_type
+        <select name="deal_type">
+          <option value="sale">sale</option>
+          <option value="rent">rent</option>
+        </select>
+      </label>
+
+      <label>engine_version
+        <input name="engine_version" type="number" value="2" min="1">
+      </label>
+
+      <label>object_type[0]
+        <input name="object_type[0]" type="number" value="1" min="1">
+      </label>
+
+      <label>offer_type
+        <input name="offer_type" value="offices">
+      </label>
+
+      <label>region
+        <input name="region" type="number" value="2" min="1">
+      </label>
+
+      <label>max_pages
+        <input name="max_pages" type="number" value="1" min="1">
+      </label>
+
+      <label>radius&nbsp;(m)
+        <input name="radius" type="number" value="100" min="0">
+      </label>
+
+      <label>limit
+        <input name="limit" type="number" value="50" min="1">
+      </label>
+
+      <label>venue_type
+        <input name="venue_type" value="standard">
+      </label>
+
+      <button type="submit" id="btn-search">Поиск</button>
+    </fieldset>
+  </form>
+</section>
+
+<!-- ░░░ КАРТА ░░░ -->
+<section id="map-wrap">
+  <h2>Карта</h2>
+  <div id="map"></div>
+</section>
+
+<!-- ░░░ ТАБЛИЦА ░░░ -->
+<section id="table-wrap">
+  <h2>Результаты: <span id="cnt">0</span></h2>
+  <table id="result-table" class="display nowrap" style="width:100%">
+    <thead><tr id="thead-row"></tr></thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<!-- ░░░ LOADER ░░░ -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+<!-- ========== JS ============= -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- DataTables + Buttons -->
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- CUSTOM JS -->
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

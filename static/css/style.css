@@ -1,0 +1,24 @@
+/* ─────────────────────────── базовая вёрстка */
+html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif}
+header{background:#222;color:#fff;padding:.6rem 1rem}
+fieldset{border:1px solid #999;padding:.7rem;margin:.7rem 0}
+label{display:inline-block;margin:.3rem .8rem .3rem 0}
+#btn-search{padding:.35rem .9rem;cursor:pointer}
+
+/* ─────────────────────────── карта (ч/б) */
+#map-wrap{margin:1rem 0}
+#map{height:400px;width:100%;border:1px solid #999;filter:grayscale(1)}
+
+/* ─────────────────────────── таблица */
+table.dataTable tbody td{font-size:.85em}
+
+/* ─────────────────────────── LOADER overlay */
+#loader{
+  position:fixed;inset:0;display:none;justify-content:center;align-items:center;
+  background:rgba(255,255,255,.7);z-index:9999
+}
+.spinner{
+  width:60px;height:60px;border:7px solid #aaa;border-top-color:#000;
+  border-radius:50%;animation:spin 1s linear infinite
+}
+@keyframes spin{to{transform:rotate(360deg)}}

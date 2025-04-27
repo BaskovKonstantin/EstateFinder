@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./cache:/app/cache
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+    depends_on:
+      - splash
+
+  splash:
+    image: scrapinghub/splash
+    ports:
+      - "8050:8050" 
